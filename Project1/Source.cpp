@@ -64,7 +64,7 @@ struct Node* CreateTree(struct Node* root, struct Node* r, int data)
 	else {
 		cout << "Ёлемент уже есть\n";
 	}
-	return root;
+	return root; 
 }
 
 
