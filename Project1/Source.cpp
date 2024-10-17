@@ -32,6 +32,25 @@ int find(struct Node* r, int find_data) {
 	return f;
 }
 
+int find_input(struct Node* r, int find_data, int count_fun, int m) {
+	if (r->data == find_data) {
+		count_fun += 1;
+	}
+	if (m < count_fun) {
+		m = count_fun;
+	}
+	if (r->left != NULL) {
+		m = find_input(r->left, find_data, count_fun, m);
+	}
+	if (r->right != NULL)
+	{
+		m = find_input(r->right, find_data, count_fun, m);
+	}
+
+	return m;
+}
+
+
 struct Node* CreateTree(struct Node* root, struct Node* r, int data)
 {
 	int m = 0;
@@ -94,7 +113,7 @@ int main()
 {
 	setlocale(LC_ALL, "");
 	int D, start = 1;
-
+	int count;
 	root = NULL;
 	while (start)
 	{
@@ -110,8 +129,10 @@ int main()
 	}
 
 	print_tree(root, 0);
-
-	cout << "\nконец";
+	cout << "¬ведите число: ";
 	cin >> D;
+	count = find_input(root, D, count, 0);
+	cout << "Ёлементов в дереве:" << count;
+
 	return 0;
 }
