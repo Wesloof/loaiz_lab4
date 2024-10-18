@@ -32,6 +32,7 @@ int find(struct Node* r, int find_data) {
 	return f;
 }
 
+
 int find_input(struct Node* r, int find_data, int count_fun, int m) {
 	if (r->data == find_data) {
 		count_fun += 1;
@@ -81,10 +82,11 @@ struct Node* CreateTree(struct Node* root, struct Node* r, int data)
 			CreateTree(r, r->right, data);
 	}
 	else {
-		cout << "Ёлемент уже есть\n";
+		cout << "Ёлемент уже есть" << endl;
 	}
-	return root; 
+	return root;
 }
+
 
 
 
